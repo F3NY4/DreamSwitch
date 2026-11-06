@@ -41,7 +41,7 @@ class DreamWaveProgressBar @JvmOverloads constructor(
         val strokeWidth = 5f * density
         val radius = strokeWidth / 2f
         val color = MaterialColors.getColor(
-            this, com.google.android.material.R.attr.colorPrimary
+            this, androidx.appcompat.R.attr.colorPrimary
         )
         trackPaint.color = ColorUtils.setAlphaComponent(color, 58)
         trackPaint.strokeWidth = strokeWidth
