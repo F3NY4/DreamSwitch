@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Lightweight translucency; no live GPU blur. -->
+    <color name="dream_glass_tint">#CBECE9F0</color>
+    <color name="dream_glass_stroke">#99FFFFFF</color>
+</resources>
