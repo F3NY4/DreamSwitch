@@ -53,14 +53,15 @@ class DreamSwitchPatchTests(unittest.TestCase):
                 write(patch.RES / directory / filename,
                     '<root xmlns:android="http://schemas.android.com/apk/res/android" '
                     'xmlns:app="http://schemas.android.com/apk/res-auto" '
-                    'android:layout_marginVertical="' + margin + '"/>'
+                    '\n    android:layout_marginVertical="' + margin + '"></root>'
                 )
             write(patch.RES / "layout/dialog_progress_bar.xml",
                 '<root xmlns:android="http://schemas.android.com/apk/res/android" '
                 'xmlns:app="http://schemas.android.com/apk/res-auto">'
-                '<com.google.android.material.progressindicator.LinearProgressIndicator '
-                'android:layout_height="wrap_content" android:padding="24dp" '
-                'app:trackCornerRadius="4dp" /></root>'
+                '\n<com.google.android.material.progressindicator.LinearProgressIndicator'
+                '\n        android:layout_height="wrap_content"'
+                '\n        android:padding="24dp"'
+                '\n        app:trackCornerRadius="4dp" />\n</root>'
             )
             gradle = write("src/android/app/build.gradle.kts",
                 'applicationId = "org.citron.citron_emu"\n'
