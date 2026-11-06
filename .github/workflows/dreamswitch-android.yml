@@ -69,8 +69,12 @@ jobs:
           test -f "$ANDROID_HOME/platforms/android-36/android.jar"
           test -d "$ANDROID_HOME/ndk/26.1.10909125"
           test -d "$ANDROID_HOME/cmake/3.22.1"
+          # AndroidX Core 1.19.0 requires API 37. Keep the stable SDK 36
+          # and use the latest compatible AndroidX Core line for this build.
           sed -i 's/compileSdk = 37/compileSdk = 36/' emulator/src/android/app/build.gradle.kts
+          sed -i 's/androidx.core:core-ktx:1.19.0/androidx.core:core-ktx:1.17.0/' emulator/src/android/app/build.gradle.kts
           grep -F 'compileSdk = 36' emulator/src/android/app/build.gradle.kts
+          grep -F 'androidx.core:core-ktx:1.17.0' emulator/src/android/app/build.gradle.kts
 
       - name: Test patch logic
         run: python3 -m unittest discover -s dreamswitch/tests -v
