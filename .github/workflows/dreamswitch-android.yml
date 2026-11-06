@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       upstream_ref:
-        description: Citron Neo branch, tag or commit (leave main unless instructed)
+        description: Citron Neo branch, tag or commit (verified default)
         required: false
-        default: main
+        default: 7dc47bab8469fabf810fccf88f938f4e75fe3852
 
 permissions:
   contents: read
@@ -34,7 +34,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: citron-neo/emulator
-          ref: ${{ inputs.upstream_ref || 'main' }}
+          ref: ${{ inputs.upstream_ref || '7dc47bab8469fabf810fccf88f938f4e75fe3852' }}
           path: emulator
           fetch-depth: 0
           submodules: recursive
